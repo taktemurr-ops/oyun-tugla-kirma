@@ -5,7 +5,6 @@ import 'package:arcade_motoru/tugla.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const tuglaId = 'oyun-tugla-kirma';
 
@@ -88,7 +87,7 @@ final tuglaConfig = GameConfig(
   rules: tuglaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => tuglaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => tuglaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintBricks(c, s, p, t);
